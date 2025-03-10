@@ -11,7 +11,10 @@
 - optimizes performance by laoding correct styles
 
 ### How Media Queries Work (@media rules)
-
+@media (max-width: ___ px) {
+  <!-- CSS changes here -->
+  
+}
 
 ### Breakpoints for Different Devices
 
