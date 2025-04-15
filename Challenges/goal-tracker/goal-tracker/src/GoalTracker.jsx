@@ -1,9 +1,9 @@
 import React from 'react';
-import { useState } from 'react';
-
-let nextId = 0;
+import { useState, useRef } from 'react';
+import AddGoalForm from './AddGoalForm.jsx'
 
 function GoalTracker() {
+  let nextId = useRef(0);
   const [goal, setGoal] = useState('');
   const [goals, setGoals] = useState([]);
 
@@ -14,7 +14,7 @@ function GoalTracker() {
 
     setGoals([
       ...goals,
-      { id: nextId++, goal: goal }
+      { id: nextId.current++, goal: goal }
     ]);
 
     setGoal('');
@@ -43,6 +43,8 @@ function GoalTracker() {
           <li key={goal.id}>{goal.goal}</li>
         ))}
       </ul>
+
+      <AddGoalForm onAddGoal={addGoal} />
     </>
   );
 }
